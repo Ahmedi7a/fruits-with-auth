@@ -41,7 +41,8 @@ app.use(
 app.use(passUserToView);
 //====================================================
 //import controller
-const authCotroller = require('./controllers/authentication.js')
+const authCotroller = require('./controllers/authentication.js');
+const fruitController= require('./controllers/fruits.js');
 
 //==================================================
 
@@ -66,6 +67,9 @@ app.get('/auth/sign-out', authCotroller.signOut);
 //vip
 app.get('/vip-lounge', isSignedIn, authCotroller.welcome)
 
+//====================================
+//fruittttttts route
+app.get('/fruits/new',isSignedIn ,fruitController.newFruit);
 
 //=============================================
 app.listen(process.env.PORT || 3000, () => {
