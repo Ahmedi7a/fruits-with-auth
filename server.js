@@ -45,7 +45,7 @@ const authCotroller = require('./controllers/authentication.js');
 const fruitController= require('./controllers/fruits.js');
 
 //==================================================
-
+//auth routes
 //home page
 app.get('/', authCotroller.home);
 
@@ -70,6 +70,8 @@ app.get('/vip-lounge', isSignedIn, authCotroller.welcome)
 //====================================
 //fruittttttts route
 app.get('/fruits/new',isSignedIn ,fruitController.newFruit);
+app.post('/fruits', isSignedIn,fruitController.addFruits); //post form for add
+app.get('/fruits',isSignedIn, fruitController.index); //show index page
 
 //=============================================
 app.listen(process.env.PORT || 3000, () => {
